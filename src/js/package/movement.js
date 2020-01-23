@@ -1,5 +1,11 @@
 THREE = require('three')
 class mouse {
+    /**
+     * Mouse movement from players
+     * @param {THREE.Renderer} renderer
+     * @param {THREE.Mesh} mesh The camera mesh
+     * @param {Number} sensitivity The sensitivity that the camera will move at
+     */
     constructor(renderer, mesh, sensitivity) {
         this.sense = sensitivity
         this.mesh = mesh
@@ -9,7 +15,9 @@ class mouse {
 
         this.renderer.addEventListener('mousemove', event => {
             yRot += (event.movementX * this.sense)
-            uDRot += (event.movementY * this.sense)
+            if (uDRot + event.movementY * this.sense < 90 && uDRot + event.movementY * this.sense > -90) {
+                uDRot += (event.movementY * this.sense)
+            }
 
             var quaternionY = new THREE.Quaternion()
             var quaternionUD = new THREE.Quaternion()
@@ -24,6 +32,11 @@ class mouse {
 }
 
 class wasd {
+    /**
+     * WASD movement for players
+     * @param {THREE.Mesh} mesh The cameras mesh 
+     * @param {Number} speed Units per second
+     */
     constructor(mesh, speed) {
         this.w = false
         this.a = false
