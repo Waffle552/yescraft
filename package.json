@@ -20,7 +20,7 @@
   "homepage": "https://github.com/Waffle552/yescraft#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "lodash": "^4.17.15",
     "oimo": "^1.0.9",
     "three": "^0.112.1"
